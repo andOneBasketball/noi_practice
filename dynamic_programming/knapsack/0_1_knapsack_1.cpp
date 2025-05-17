@@ -62,6 +62,7 @@ int main(int argc, char const *argv[])
         for (j = v; j >= vi; j--)
         {
             dp[j] = max(dp[j], dp[j-vi] + wi);
+            //cout << j << "; dp[j]:" << dp[j] << endl;
         }
     }
 

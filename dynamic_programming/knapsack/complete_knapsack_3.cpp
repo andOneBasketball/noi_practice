@@ -67,6 +67,7 @@ int main(int argc, char const *argv[])
                 dp[i][j] = dp[i-1][j];
                 continue;
             }
+            // 物品数量无限，因此 dp[i][j-vi] + wi 表示可以取无限次
             dp[i][j] = max(dp[i-1][j], dp[i][j-vi] + wi);
         }
     }

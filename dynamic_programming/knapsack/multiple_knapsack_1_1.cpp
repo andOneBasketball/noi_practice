@@ -1,4 +1,5 @@
 /*
+多重背包问题 I
 有 N
  种物品和一个容量是 V
  的背包。
@@ -42,17 +43,17 @@ dp[n] = max(dp[n], dp[n-k*vi] + k*wi)
 时间复杂度：O(n*v*si)
  */
 
-#include <iostream>
 #include <algorithm>
+#include <iostream>
 
 using namespace std;
 
-int dp[105] ={0};
+int dp[105] = {0};
 
 int main(int argc, char const *argv[])
 {
-    //freopen("multiple_knapsack_2.in", "r", stdin);
-    //freopen("multiple_knapsack.out", "w", stdout);
+    freopen("multiple_knapsack_2.in", "r", stdin);
+    freopen("multiple_knapsack.out", "w", stdout);
     int n, v, vi, wi, si, i, j, k;
     cin >> n >> v;
     for (i = 1; i <= n; i++)
@@ -60,9 +61,10 @@ int main(int argc, char const *argv[])
         cin >> vi >> wi >> si;
         for (j = v; j >= vi; j--)
         {
-            for (k = 1; k <= si && k*vi <= j; k++)
+            for (k = 1; k <= si && k * vi <= j; k++)
             {
-                dp[j] = max(dp[j], dp[j-vi*k] + k*wi);
+                dp[j] = max(dp[j], dp[j - vi * k] + k * wi);
+                printf("dp[%d]:%d, k:%d, vi:%d, wi:%d, si:%d\n", j, dp[j], k, vi, wi, si);
             }
         }
     }
