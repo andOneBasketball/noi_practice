@@ -35,6 +35,7 @@ func (this *LFUCache) Get(key int) int {
 	if this.Freq[freq] == nil {
 		this.Freq[freq] = list.New()
 	}
+	// newNode := this.Freq[freq].PushFront(node.Value)  // 访问频率修改了，为啥 first code 的时候就这样直接插入了呢？...
 	newNode := this.Freq[freq].PushFront([3]int{node.Value.([3]int)[0], key, freq})
 	this.Data[key] = newNode
 	return node.Value.([3]int)[0]
